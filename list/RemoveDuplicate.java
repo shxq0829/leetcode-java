@@ -7,7 +7,10 @@ public class RemoveDuplicate {
               this.val = x;
               next = null;
          }        
-    }     
+    } 
+    /*
+     * 递归版本
+     */
     public static ListNode removeduplicate (ListNode head) {
         if (head == null) return head;
         ListNode dummy = new ListNode(head.val + 1);
@@ -24,6 +27,19 @@ public class RemoveDuplicate {
              recur(pre.next,cur.next);
         }
     }
+    /*
+     * 迭代版本
+     */
+    public static ListNode removeduplicate2(ListNode head) {
+         if(head == null) return null;
+         ListNode pre = head,cur = head.next;//pre = head 相当于引用，一个变另一个变
+         while(cur != null) {
+             if(pre.val == cur.val) pre.next = cur.next;
+             else pre = cur;
+             cur = pre.next;
+         }
+         return head;
+    }
     public static void main(String[] args) {
          ListNode l1 = new ListNode(1);
          ListNode l2 = new ListNode(1);
@@ -35,7 +51,7 @@ public class RemoveDuplicate {
          l3.next = l4;
          l4.next = l5;
          l5.next = null;        
-         ListNode ret = removeduplicate(l1);
+         ListNode ret = removeduplicate2(l1);
          for (ListNode l = ret;l != null;l = l.next) 
                StdOut.print(l.val + " -> ");    
          StdOut.println("null"); 
