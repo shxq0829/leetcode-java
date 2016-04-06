@@ -16,8 +16,7 @@ public class SwapPairs {
               pre.next = next;
               cur.next = next.next;
               next.next = cur;
-         }
-         
+         }         
          return dummy.next;
     }
   
