@@ -4,6 +4,7 @@ public class IsPal {
 		if (s == null || s.length() < 2) {
 			return true;
 		}
+		boolean flag = true;
 		char[] ch = s.toCharArray();
 		int len = s.length();
 		int i = 0, j = len -1;
@@ -23,14 +24,14 @@ public class IsPal {
 				ch[j] += 'a' - 'A';
 			}
 			if (ch[i] != ch[j]) {
-				return false;
+				flag = false;
+				break;
 			} else {
 				i++;
 				j--;
-			}
-			
+			}		
 		}
-		return true;
+		return flag;
 	}
 	public static void main(String[] args) {
 		String str = StdIn.readString();
