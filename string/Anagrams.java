@@ -10,7 +10,7 @@ public class Anagrams {
             Arrays.sort(chs);
             strs2[i] = String.valueOf(chs);
         }
-        
+
         boolean[] flags = new boolean[strs.length];
         Arrays.fill(flags, false);
         HashMap<String, Integer> map = new HashMap<String, Integer>();
@@ -23,20 +23,20 @@ public class Anagrams {
                 map.put(strs2[i], i);
             }
         }
-        
+
         for (int i = 0; i < strs.length; i++) {
             if (flags[i]) {
                 ans.add(strs[i]);
             }
         }
-        
+
         return ans;
     }
     public static void main(String[] args) {
         List<String> ret = new ArrayList<String>();
         ret = anagrams(args);
         for (String tmp:ret ) {
-             StdOut.println(tmp);   
+             StdOut.println(tmp);
         }
     }
 }
