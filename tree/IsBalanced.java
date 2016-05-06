@@ -20,6 +20,28 @@ public class IsBalanced {
     if(root == null) return 0;
     return Math.max(depth(root.left),depth(root.right)) +1;
   }
+  //方法2
+  public static boolean isBalanced(TreeNode root) {
+        height(root);
+        return run(root);
+    }
+
+    public static boolean run(TreeNode root) {
+        if (root == null) return true;
+
+        int l = 0, r = 0;
+        if (root.left != null) l = root.left.val;
+        if (root.right != null) r = root.right.val;
+        if (Math.abs(l - r) <= 1 && isBalanced(root.left) && isBalanced(root.right)) return true;
+
+        return false;
+    }
+
+    public static int height(TreeNode root) {
+        if (root == null) return 0;
+        root.val = Math.max( height(root.left), height(root.right) ) + 1;
+        return root.val;
+    }
   public static void main(String[] args) {
     TreeNode tn1 = new TreeNode(1);
     TreeNode tn2 = new TreeNode(2);
@@ -33,5 +55,6 @@ public class IsBalanced {
     tn4.left = null;
     tn4.right = tn5;
     StdOut.println(isbalanced(tn1));
+    StdOut.println(isBalanced(tn1));
   }
 }
