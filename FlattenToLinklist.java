@@ -1,5 +1,5 @@
 import edu.princeton.cs.algs4.*;
-//import common.TreeNode;
+import common.TreeNode;
 public class FlattenToLinklist {
   // public static class TreeNode {
   //   private int val;
